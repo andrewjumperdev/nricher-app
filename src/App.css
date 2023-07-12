@@ -1,0 +1,7 @@
+.app {
+    height: 100vh;
+}
+.container-prix-moyen {
+    overflow-y: hidden; 
+    overflow-x: scroll;
+}

@@ -2,10 +2,7 @@ import React from 'react'
 import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 
 
-const PrixMoyenChart = ({data}) => {
-
-   
-
+const PrixMoyenChart = ({data}) => {  
   const datosGrafico = Object.entries(data).map((dato) => ({
     mkp: dato[0],
     price: parseInt(dato[1].toFixed(0)), 
@@ -14,12 +11,12 @@ const PrixMoyenChart = ({data}) => {
   const cleanData = datosGrafico.sort((a, b) => a.price - b.price);
   
   return (
-    <div>
-      <ResponsiveContainer width="100%" aspect={2}>
+    <div className='container h__scroll'>
+      <h4 className='text-center'>Prix Moyen par Site</h4>
+      <ResponsiveContainer aspect={2}>
           <BarChart 
-          data={cleanData}
-          width={600} 
-          height={400} 
+          width={13} height={5}
+          data={cleanData} 
           margin={{
             top:5,
             right:30,

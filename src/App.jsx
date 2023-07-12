@@ -34,13 +34,21 @@ const App = () => {
     <>
       <Navigation />
       <div className="container d-flex">
-        <ArticleChart data={productsFiltrTop} />
-        <ArticleChart data={productsFiltrTop} />
+        <ArticleChart title={'BC par #Avis'} data={productsFiltrTop} />
+        <ArticleChart title={'Marchant par #Avis'} data={productsFiltrTop} />
       </div>
-      <div>
+      <div className="container">
         <PrixMoyenChart data={calMoyPrix} />
       </div>
-      <Suspense fallback={<div>Cargando...</div>}>
+      <Suspense
+        fallback={
+          <div>
+            <div class="spinner-border text-primary" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
+        }
+      >
         <ArticleTable data={csvData} />
       </Suspense>
     </>

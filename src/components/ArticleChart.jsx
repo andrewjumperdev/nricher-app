@@ -1,8 +1,10 @@
 import React from 'react'
-import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
+import { Area, Bar, BarChart, CartesianGrid, ComposedChart, Legend, Line, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 
 
-const ArticleChart = ({data}) => {
+const ArticleChart = ({data}, {title}) => {
+
+  console.log(title)
 
   const datosGrafico = data.map((dato) => ({
     name: dato.BC,
@@ -10,9 +12,10 @@ const ArticleChart = ({data}) => {
   }));
 
   return (
-    <div className="container border border-4 p-4">
+    <div className="container m-3 shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+          <h3>{title}</h3>
           <ResponsiveContainer width="100%" aspect={2}>
-          <BarChart           
+          <BarChart       
           data={datosGrafico}
           width={600} 
           height={400} 
@@ -31,7 +34,7 @@ const ArticleChart = ({data}) => {
            <Bar dataKey='price' barSize={60} fill='#00c097'/>
           </BarChart>
       </ResponsiveContainer>
-    </div>
+      </div>
   )
 }
 

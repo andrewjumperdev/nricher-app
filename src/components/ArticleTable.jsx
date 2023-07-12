@@ -11,7 +11,7 @@ const ArticleTable = ({data}) => {
   }
   
   return (
-    <div>
+    <div className="container">
       <table className="table">
         <thead>
           <tr>
