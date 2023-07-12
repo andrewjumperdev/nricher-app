@@ -2,23 +2,21 @@ import React from 'react'
 import { Area, Bar, BarChart, CartesianGrid, ComposedChart, Legend, Line, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 
 
-const ArticleChart = ({data}, {title}) => {
-
-  console.log(title)
+const ArticleChart = ({data , title, selectedOption}) => {
 
   const datosGrafico = data.map((dato) => ({
     name: dato.BC,
     price: dato.PRICE, 
   }));
 
+  console.log(selectedOption)
+
   return (
     <div className="container m-3 shadow-lg p-3 mb-5 bg-body-tertiary rounded">
           <h3>{title}</h3>
-          <ResponsiveContainer width="100%" aspect={2}>
+          <ResponsiveContainer width="70%" aspect={2}>
           <BarChart       
           data={datosGrafico}
-          width={600} 
-          height={400} 
           margin={{
             top:5,
             right:30,
@@ -31,7 +29,7 @@ const ArticleChart = ({data}, {title}) => {
            <YAxis />
            <Tooltip />
            <Legend />
-           <Bar dataKey='price' barSize={60} fill='#00c097'/>
+           <Bar dataKey='price' barSize={40} fill='#00c097'/>
           </BarChart>
       </ResponsiveContainer>
       </div>

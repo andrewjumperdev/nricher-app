@@ -10,6 +10,7 @@ const ArticleTable = lazy(() => import("./components/ArticleTable"));
 
 const App = () => {
   const [csvData, setCsvData] = useState([]);
+  const [selectedOption, setSelectedOption] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,26 +26,41 @@ const App = () => {
     fetchData();
   }, []);
 
+  const handleOptionChange = (data) => {
+    setSelectedOption(data);
+  };
+
   const productsFiltrTop = TopProducts(csvData);
   const calMoyPrix = calMoyPrice(csvData);
 
-  console.log(calMoyPrix);
-
   return (
     <>
-      <Navigation />
-      <div className="container d-flex">
-        <ArticleChart title={'BC par #Avis'} data={productsFiltrTop} />
-        <ArticleChart title={'Marchant par #Avis'} data={productsFiltrTop} />
+      <Navigation data={csvData} handleOptionChange={handleOptionChange}/>
+      <div className="container">
+        <div className="row">
+          <div className="col-6">
+            <ArticleChart title={"BC par #Avis"} data={productsFiltrTop} selectedOption={selectedOption}/>
+          </div>
+          <div className="col-6">
+            <ArticleChart
+              title={"Marchant par #Avis"}
+              data={productsFiltrTop}
+            />
+          </div>
+        </div>
       </div>
       <div className="container">
-        <PrixMoyenChart data={calMoyPrix} />
+        <div className="row">
+          <div className="col">
+            <PrixMoyenChart data={calMoyPrix} />
+          </div>
+        </div>
       </div>
       <Suspense
         fallback={
-          <div>
-            <div class="spinner-border text-primary" role="status">
-              <span class="visually-hidden">Loading...</span>
+          <div className="container w-100 d-flex justify-content-center">
+            <div className="m-5 spinner-border text-primary" role="status">
+              <span className="visually-hidden">Loading...</span>
             </div>
           </div>
         }

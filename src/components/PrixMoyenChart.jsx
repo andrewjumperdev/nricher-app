@@ -11,11 +11,10 @@ const PrixMoyenChart = ({data}) => {
   const cleanData = datosGrafico.sort((a, b) => a.price - b.price);
   
   return (
-    <div className='container h__scroll'>
+    <div className='container'>
       <h4 className='text-center'>Prix Moyen par Site</h4>
       <ResponsiveContainer aspect={2}>
           <BarChart 
-          width={13} height={5}
           data={cleanData} 
           margin={{
             top:5,
@@ -25,8 +24,8 @@ const PrixMoyenChart = ({data}) => {
           }}
           >
            <CartesianGrid strokeDasharray='4 1 2'/>
-           <XAxis dataKey="price"/>
-           <YAxis />
+           <XAxis dataKey="mkp"/>
+           <YAxis dataKey="price"/>
            <Tooltip />
            <Legend />
            <Bar dataKey='price' fill='#1ee3cf'/>

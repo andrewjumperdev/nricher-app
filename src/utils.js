@@ -44,3 +44,26 @@ export function calMoyPrice(datos) {
   
     return medias;
   }
+
+export function filterSellers(data, categoryTitle) {
+
+  const category = [];
+
+  for (let item of data) {
+    const itemFiltr = item[categoryTitle];
+    if (itemFiltr && !category.includes(itemFiltr)) {
+      category.push(itemFiltr);
+    }
+  }
+
+  return category;
+}
+
+export function calcularClientesNecesarios(data) {
+  const atributos = Object.values(data);
+  const elementosUnicos = [...new Set(atributos.filter((atributo) => atributo !== ""))];
+
+  const clientesNecesarios = elementosUnicos.length;
+
+  return clientesNecesarios;
+}

@@ -11,8 +11,10 @@ const ArticleTable = ({data}) => {
   }
   
   return (
-    <div className="container">
-      <table className="table">
+    <div className="container-fluid p-5">
+      <div className="row">
+        <div className="col">
+        <table className="table overflow-auto max-height-200">
         <thead>
           <tr>
             <th scope="col">Article</th>
@@ -37,6 +39,8 @@ const ArticleTable = ({data}) => {
             ))}
         </tbody>
       </table>
+        </div>
+      </div>
     </div>
   );
 };
