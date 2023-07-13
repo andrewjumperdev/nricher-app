@@ -12,25 +12,28 @@ const PrixMoyenChart = ({data}) => {
   
   return (
     <div className='container'>
-      <h4 className='text-center'>Prix Moyen par Site</h4>
-      <ResponsiveContainer aspect={2}>
+      <div className="row">
+        <div className="col">
+        <h4 className='text-center'>Prix Moyen par Site</h4>
+        </div>
+      </div>
+      <div className="row py-5">
+        <div className="col">
+        <ResponsiveContainer aspect={2}>
           <BarChart 
+          width={150} height={40}
           data={cleanData} 
-          margin={{
-            top:5,
-            right:30,
-            left:30,
-            bottom:5
-          }}
           >
            <CartesianGrid strokeDasharray='4 1 2'/>
            <XAxis dataKey="mkp"/>
            <YAxis dataKey="price"/>
            <Tooltip />
            <Legend />
-           <Bar dataKey='price' fill='#1ee3cf'/>
+           <Bar dataKey='price'  barSize={25} fill='#1ee3cf'/>
           </BarChart>
       </ResponsiveContainer>
+        </div>
+      </div>
     </div>
   )
 }

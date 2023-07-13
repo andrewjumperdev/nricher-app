@@ -67,3 +67,28 @@ export function calcularClientesNecesarios(data) {
 
   return clientesNecesarios;
 }
+
+
+export function filterDatos (datos, filtros) {
+  // Filtrar por Site
+  if (filtros.site && filtros.site !== 'Todos') {
+    datos = datos.filter(item => item.Site === filtros.site);
+  }
+
+  // Filtrar por Gamme
+  if (filtros.gamme && filtros.gamme !== 'Todas') {
+    datos = datos.filter(item => item.Gamme === filtros.gamme);
+  }
+
+  // Filtrar por Seller
+  if (filtros.seller && filtros.seller !== 'Todos') {
+    datos = datos.filter(item => item.Seller === filtros.seller);
+  }
+
+  // Filtrar por Nature
+  if (filtros.nature && filtros.nature !== 'Todas') {
+    datos = datos.filter(item => item.Nature === filtros.nature);
+  }
+
+  return datos;
+}
