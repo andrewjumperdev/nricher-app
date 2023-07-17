@@ -1,6 +1,5 @@
 import React from 'react'
-import { Area, Bar, BarChart, CartesianGrid, ComposedChart, Legend, Line, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
-
+import { Bar, BarChart, CartesianGrid, ComposedChart, Legend, Line, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 
 const ArticleChart = ({data , title}) => {
   const datosGrafico = data.map((dato) => ({
